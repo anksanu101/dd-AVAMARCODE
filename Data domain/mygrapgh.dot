@@ -1,0 +1,25 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] azurerm_marketplace_agreement.dellemc (expand)" [label = "azurerm_marketplace_agreement.dellemc", shape = "box"]
+		"[root] azurerm_network_interface.main (expand)" [label = "azurerm_network_interface.main", shape = "box"]
+		"[root] azurerm_resource_group.main (expand)" [label = "azurerm_resource_group.main", shape = "box"]
+		"[root] azurerm_subnet.internal (expand)" [label = "azurerm_subnet.internal", shape = "box"]
+		"[root] azurerm_virtual_machine.main (expand)" [label = "azurerm_virtual_machine.main", shape = "box"]
+		"[root] azurerm_virtual_network.main (expand)" [label = "azurerm_virtual_network.main", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/azurerm\"]" [label = "provider[\"registry.terraform.io/hashicorp/azurerm\"]", shape = "diamond"]
+		"[root] var.prefix" [label = "var.prefix", shape = "note"]
+		"[root] azurerm_marketplace_agreement.dellemc (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/azurerm\"]"
+		"[root] azurerm_network_interface.main (expand)" -> "[root] azurerm_subnet.internal (expand)"
+		"[root] azurerm_resource_group.main (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/azurerm\"]"
+		"[root] azurerm_subnet.internal (expand)" -> "[root] azurerm_virtual_network.main (expand)"
+		"[root] azurerm_virtual_machine.main (expand)" -> "[root] azurerm_network_interface.main (expand)"
+		"[root] azurerm_virtual_network.main (expand)" -> "[root] azurerm_resource_group.main (expand)"
+		"[root] azurerm_virtual_network.main (expand)" -> "[root] var.prefix"
+		"[root] provider[\"registry.terraform.io/hashicorp/azurerm\"] (close)" -> "[root] azurerm_marketplace_agreement.dellemc (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/azurerm\"] (close)" -> "[root] azurerm_virtual_machine.main (expand)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/azurerm\"] (close)"
+	}
+}
+
